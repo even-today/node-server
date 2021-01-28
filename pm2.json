@@ -1,0 +1,15 @@
+{
+  "name": "mbs-server",
+  "script": "dist/code/index.js",
+  "env": {
+    "COMMON_VARIABLE": "true",
+    "NODE_ENV": "production",
+    "BABEL_DISABLE_CACHE": "1"
+  },
+  "exec_mode": "cluster",
+  "instances": 4,
+  "watch": false,
+  "log_date_format": "YYYY-MM-DD HH:mm Z",
+  "max_memory_restart": "2000M",
+  "merge_logs": true,
+}
