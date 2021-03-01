@@ -1,6 +1,11 @@
 import { Context } from 'koa'
 import { Middleware, KoaMiddlewareInterface } from 'routing-controllers'
 
+// URL prefix to miss this middleware
+const byPass = [
+    '/monitor/alive'
+];
+
 @Middleware({ type: 'before' })
 export default class ErrorHandlerMiddleWare implements KoaMiddlewareInterface {
     async use(ctx: Context, next: () => Promise<any>): Promise<any> {
@@ -16,6 +21,11 @@ export default class ErrorHandlerMiddleWare implements KoaMiddlewareInterface {
                 ctx.response.status = status
                 return null
             }
+
+            // 不经过包住的白名单
+            const pass = byPass.find(urlPath => ctx.request.url.startsWith(urlPath))
+            if (pass) return null
+
             // 正确返回
             ctx.body = {
                 state: true,
