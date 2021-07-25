@@ -5,9 +5,15 @@
       true,
       "check-space"
     ],
+    "unnecessary-else": true,
     "indent": [
       true,
       "spaces"
+    ],
+    "typedef": [
+      true,
+      "call-signature",
+      "property-declaration"
     ],
     "no-duplicate-variable": true,
     "no-eval": true,

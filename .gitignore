@@ -3,6 +3,5 @@ node_modules
 docs
 coverage
 .idea
-.vscode
 dist
 yarn.lock

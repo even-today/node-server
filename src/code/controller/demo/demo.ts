@@ -1,23 +1,25 @@
 import { Context } from 'koa'
 import { Controller, Param, Body, Get, Post, Put, Delete, Ctx } from 'routing-controllers'
-import { Demo } from '#/interface/controller/demo/demo-interface'
+
+import * as DemoInterface from '#/interface/controller/demo/demo'
 
 @Controller('/demo')
 export default class DemoController {
     @Get('/')
-    async getDemo(@Ctx() ctx: Context): Promise<Demo> {
+    getDemo1(@Ctx() ctx: Context): DemoInterface.PostDemo1Return {
         return {
-            name: '123',
-            data: ['data']
+            data1: 123,
+            what: 123,
+            test2: 123
         }
     }
 
     @Post('/')
-    async postDemo(@Ctx() ctx: Context, @Body() body: Demo): Promise<Demo> {
-        console.log(body, 123)
+    postDemo2(@Ctx() ctx: Context, @Body() body: DemoInterface.PostDemo2Body ) : DemoInterface.PostDemo2Return {
+        const { data1, data2, test } = body;
         return {
-            name: '123',
-            data: ['data']
+            data2: 234,
+            data: 123
         }
     }
 }

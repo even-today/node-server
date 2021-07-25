@@ -16,6 +16,7 @@ export default class PreFixMiddleWare implements KoaMiddlewareInterface {
             // localhost:3000 front-end dev server port
             ctx.response.set('Access-Control-Allow-Origin', 'http://localhost:3000')
             ctx.response.set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE')
+            // 本地跨域测试 header 专用
             ctx.response.set('Access-Control-Allow-Headers', 'content-type,other-key')
             ctx.response.set('Access-Control-Allow-Credentials', 'true')
         }

@@ -1,25 +1,26 @@
-import devConfig from './development';
-import prodConfig from './production';
-import testConfig from './test';
+import Config  from '#/interface/config'
+import devConfig from './development'
+import prodConfig from './production'
+import testConfig from './test'
 
-let config;
+let config: Config
 switch (process.env.NODE_ENV) {
     case 'production': {
-        config = prodConfig;
-        break;
+        config = prodConfig
+        break
     }
     case 'development': {
-        config = devConfig;
-        break;
+        config = devConfig
+        break
     }
     case 'test': {
-        config = testConfig;
-        break;
+        config = testConfig
+        break
     }
     default: {
-        config = devConfig;
-        break;
+        config = devConfig
+        break
     }
 }
 
-export default config;
+export default config

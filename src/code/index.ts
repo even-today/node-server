@@ -20,6 +20,6 @@ const server = app.listen(config.port, () => {
 })
 
 // error log
-app.on('error', (error) => {
+app.on('error', (error: any) => {
     console.error(error)
 })

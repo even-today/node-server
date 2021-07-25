@@ -1,7 +1,6 @@
-import Config  from '#/interface/config'
+import Default from './default'
 
-const config: Config = {
-    port: 8080
+export default {
+    ...Default,
+    env: 'production',
 };
-
-export default config
